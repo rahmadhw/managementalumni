@@ -3,9 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Ijazah extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model("IjazahModel");
+	}
+
 	public function index()
 	{
-		$data["ijazah"] = $this->SiswaModel->getijazah();
+		$data["ijazah"] = $this->IjazahModel->getijazah();
 		$this->load->view("templates/header");
 		$this->load->view("templates/sidebar");
 		$this->load->view("admin/ijazah", $data);
@@ -30,17 +36,31 @@ class Ijazah extends CI_Controller {
 		$cek= $this->db->get()->result_array();
 		$idalumnicek = $cek[0]["idalumni"];
 		if ($idalumni === $idalumnicek) {
-			$this->session->set_flashdata("ijazah", "gagal");
+			$this->session->set_flashdata("flash", "gagal");
 			redirect(base_url("admin/ijazah"));
 		}else {
 			$arr = array(
 				'idalumni' 			=> $idalumni ,
 				"statuspengambilan" => $statuspengambilan,
 			);
-			$this->SiswaModel->insertTambahAlumni($arr);
-			$this->session->set_flashdata("ijazah", "berhasil");
+			$this->IjazahModel->insertTambahAlumnijazah($arr);
+			$this->session->set_flashdata("flash", "berhasil");
 			redirect(base_url("admin/ijazah"));
 		}
+	}
+
+	public function formeditijazah()
+	{
+
+		$data['editijazah'] = $this->IjazahModel->getidijazah("tblijazah")[0];
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('admin/formeditijazah', $data);
+		$this->load->view('templates/footer');
+	}
+
+	public function proseseditijazah(){
+		$this->IjazahModel->proseseditijazah();
 	}
 
 	

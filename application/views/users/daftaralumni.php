@@ -80,7 +80,13 @@
 
                 <div class="form-group">
                   <label>Status Pekerjaan</label>
-                  <input type="text" name="statuspekerjaan" class="form-control">
+                  <select class="custom-select custom-select form-control" name="idstatus">
+                    <option value="">=== Silakan Pilih ===</option>
+                 <?php foreach ($ambil as $amb) :  ?>
+                    <option value="<?php echo $amb['idstatus']; ?>"><?php echo $amb['namastatus']; ?></option>
+                <?php endforeach; ?>
+                   
+                  </select>
                 </div>
 
                 <div class="form-group ml-1">

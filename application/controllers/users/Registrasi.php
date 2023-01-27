@@ -25,31 +25,9 @@ class Registrasi extends CI_Controller {
 		  $this->load->view('users/registrasi');	
 		}
 		else {
-			$username = $this->input->post("username");
-			$password = $this->input->post("password");
-			$password2 = $this->input->post("password2");
-			$namapengguna = $this->input->post("namapengguna");
-			$level = "Alumni";
-
-			if ($password !== $password2) {
-				return FALSE;
-			}else {
-				$passwordbaru = password_hash($this->input->post("password"), PASSWORD_DEFAULT);
-			}
-
-			$data = [
-
-				'username' 		=> $username,
-				'password'		=> $passwordbaru,
-				'namapengguna'	=> $namapengguna,
-				'level'			=> $level,
-
-			];
-
-
-			$this->SiswaModel->registrasi($data);
-			// $this->session->set_flashdata('flashlogin', 'berhasil');
-			redirect(base_url('login'));
+			
+			$this->SiswaModel->registrasi();
+			
 		}
 	}
 }

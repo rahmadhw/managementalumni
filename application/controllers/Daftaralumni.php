@@ -13,9 +13,10 @@ class Daftaralumni extends CI_Controller {
 	public function index()
 
 	{
+		$data["ambil"] = $this->SiswaModel->getstatus("status");
 		$this->load->view("templates/header");
 		$this->load->view("templates/sidebar");
-		$this->load->view("users/daftaralumni");
+		$this->load->view("users/daftaralumni", $data);
 		$this->load->view("templates/footer");
 	}
 
@@ -31,7 +32,6 @@ class Daftaralumni extends CI_Controller {
 		$this->form_validation->set_rules("tahuntamat", "Tahun Tamat", "required");
 		$this->form_validation->set_rules("hobi", "Hobi", "required");
 		$this->form_validation->set_rules("programkeahlian", "Program Keahlian", "required");
-		$this->form_validation->set_rules("statuspekerjaan", "Status Pekerjaan", "required");
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -42,33 +42,9 @@ class Daftaralumni extends CI_Controller {
 		}
 		else 
 		{
-			$idakun = $this->session->userdata('idakun');
-			$namaalumni = $this->input->post("namaalumni");
-			$jurusan = $this->input->post("jurusan");
-			$alamat = $this->input->post("alamat");
-			$nomortelepon = $this->input->post("nomortelepon");
-			$tahunmasuk = $this->input->post("tahunmasuk");
-			$tahuntamat = $this->input->post("tahuntamat");
-			$hobi = $this->input->post("hobi");
-			$programkeahlian = $this->input->post("programkeahlian");
-			$statuspekerjaan = $this->input->post("statuspekerjaan");
 
-			$arr = array(
-				"idakun"			=> $idakun,
-				"namaalumni"		=> $namaalumni,
-				"jurusan"			=> $jurusan,
-				"alamat"			=> $alamat,
-				"nomortelepon"		=> $nomortelepon,
-				"tahunmasuk"		=> $tahunmasuk,
-				"tahuntamat"		=> $tahuntamat,
-				"hobi"				=> $hobi,
-				"programkeahlian"	=> $programkeahlian,
-				"statuspekerjaan"	=> $statuspekerjaan,
-			);
-
-			$this->SiswaModel->insertDatapendaftaranalumni($arr);
-			$this->session->set_flashdata("pendaftaransiswa", "berhasil");
-			redirect(base_url("home"));
+			$this->SiswaModel->insertDatapendaftaranalumni();
+			
 
 		}
 	}

@@ -6,17 +6,22 @@
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    
+
+
+
+
+     <section class="content-header">
       
        <section class="content">
 
       <!-- Default box -->
       <div class="card">
-        
+       
      
         <div class="card-header">
 
-          <h3 class="card-title">Halaman Dashboard</h3>
+          <h3 class="card-title">Halaman Edit ijazah</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -28,7 +33,23 @@
           </div>
         </div>
         <div class="card-body">
-           <?php var_dump($this->session->userdata()); ?>
+          
+          <form action="" method="POST" id="formeditevent">
+            <input type="hidden" name="idijazah" value="<?php echo $editijazah['idijazah']; ?>" id="idijazah">
+            <div class="form-group">
+              <label>Status Pengambilan</label>
+              <select class="custom-select custom-select form-control" name="statuspengambilan" id="statuspengambilan">
+
+                <option class="form-control" id="statuspengambilan" name="statuspengambilan" value="<?php echo $editijazah['statuspengambilan']; ?>" selected><?php echo $editijazah['statuspengambilan'] ?></option>
+                <option value="Sudah mengambil" id="sudahmengambil">Sudah mengambil</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-sm">
+            </div>
+          </form>
+         
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -42,31 +63,6 @@
     </section>
 
 
-    <div class="row">
-      <div class="col-lg-6">
-         <section class="content-header">
-      
-       <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="flash-datalogin" data-flashdatalogin="<?php echo $this->session->flashdata('flashlogin'); ?>"></div>
-        
-
-        <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
-
-     
-        
-        
-        <!-- /.card-body -->
-       
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
-      </div>
-    </div>
-
 
     <!-- /.content -->
   </div>
@@ -76,3 +72,4 @@
     
 
 
+   

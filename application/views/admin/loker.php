@@ -28,22 +28,19 @@
           </div>
         </div>
         <div class="card-body">
-           <?php if ($this->session->flashdata("flash")) : ?>
 
-            <div class="alert alert-success" role="alert">
-              <span>Data Anda berhasil <?php echo $this->session->flashdata("flash") ?></span>
-            </div>
+          <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash') ?>"></div>
 
-          <?php endif; ?>
+          
 
           
           <table id="example" class="table table-bordered table-striped">
             <thead class="bg-dark">
               <tr>
                 <th>No</th>
-                <th>Nama Perushaan</th>
+                <th style="font-size: 15px;">Nama Perusahaan</th>
                 <th>Posisi</th>
-                <th>keterangan</th>
+                <th width="300px;">keterangan</th>
                 <th>Waktu Pelamaran</th>
                 <th>Aksi</th>
 
@@ -59,8 +56,8 @@
                 <td><?php echo $lk['keterangan'] ?></td>
                 <td><?php echo $lk['waktubataspelamaran']; ?></td>
                 <td>
-                  <a href="<?php echo base_url(); ?>admin/loker/hapusdataloker?idloker=<?php echo $lk['idloker'] ?>" class="btn btn-danger btn-sm">Hapus</a>
-                  <a href="" class="btn btn-info btn-sm">Edit</a>
+                  <a href="<?php echo base_url(); ?>admin/loker/hapusdataloker?idloker=<?php echo $lk['idloker'] ?>" class="btn btn-danger btn-sm tombol-hapus">Hapus</a>
+                  <a href="<?php echo base_url(); ?>admin/loker/formeditloker?idloker=<?php echo $lk['idloker'] ?>" class="btn btn-info btn-sm">Edit</a>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -70,9 +67,12 @@
           </table>
           <tr>
               <a href="<?php echo base_url(); ?>admin/loker/formtambahloker" class="btn btn-primary btn-sm">tambah data</a>
+
+               <button class="btn btn-info btn-sm" onclick="pelamaran()">tambah data tata cara melamar</button>
             
             </tr>
         </div>
+
         <!-- /.card-body -->
         <div class="card-footer">
           Footer
@@ -83,11 +83,6 @@
 
     </section>
     </section>
-
-
-
-
-
     <!-- /.content -->
   </div>
 

@@ -3,15 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Loker extends CI_Controller {
 
+
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->library("form_validation");
+		$this->load->model("LokerModel");
 	}
 
 	public function index()
 	{
-		$data["loker"] = $this->SiswaModel->getLoker();
+		$data["loker"] = $this->LokerModel->getLoker();
 		$this->load->view("templates/header");
 		$this->load->view("templates/sidebar");
 		$this->load->view("admin/loker", $data);
@@ -55,15 +57,31 @@ class Loker extends CI_Controller {
 
 
 
-			$this->SiswaModel->prosesTambahLoker($arr);
+			$this->LokerModel->prosesTambahLoker($arr);
 			$this->session->set_flashdata("flash", "ditambahkan");
 			redirect(base_url('admin/loker'));
 		}
 	}
 
 	public function hapusdataloker(){
-		$this->SiswaModel->hapusdataloker();
+		$this->LokerModel->hapusdataloker();
 		$this->session->set_flashdata("flash", "dihapus");
 		redirect(base_url('admin/loker'));
+	}
+
+	public function formeditloker()
+	{
+		$data['getdatafromedit'] = $this->LokerModel->getdatafromedit()[0];
+		$this->load->view("templates/header");
+		$this->load->view("templates/sidebar");
+		$this->load->view("admin/formeditloker", $data);
+		$this->load->view("templates/footer");
+	}
+
+	public function proseseditloker()
+	{
+		 $this->LokerModel->proseseditloker();
+		 $this->session->set_flashdata("flash", "berhasil di edit");
+		 redirect(base_url('admin/loker'));
 	}
 }

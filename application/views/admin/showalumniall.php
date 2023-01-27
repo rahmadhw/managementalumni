@@ -29,38 +29,41 @@
         </div>
         <div class="card-body">
 
-          <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash') ?>"></div>
+          <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>">
+            
+          </div>
 
-      
-          <table id="example"class="table table-bordered table-striped" >
-            <thead class="bg bg-dark">
+          <table class="table table-borderd table-striped" id="example">
+            <thead class="bg-dark">
               <tr>
                 <th>No</th>
                 <th>Nama Alumni</th>
-                <th>Jurusan</th>
+                <th>Jurusan Alumni</th>
+                <th>Jenis Kelamin</th>
                 <th>Alamat</th>
-                <th>Nomor Telepon</th>
+                <th>Tahun</th>
                 <th>aksi</th>
               </tr>
             </thead>
             <tbody>
-            <?php $nomor = 1;  ?>
-            <?php foreach($alumni as $sw) : ?>
+            <?php $nomor = 1; ?>
+            <?php foreach($all as $s) : ?>
               <tr>
                 <td><?php echo $nomor++; ?></td>
-                <td><?php echo $sw['namaalumni']; ?></td>
-                <td><?php echo $sw['jurusan']; ?></td>
-                <td><?php echo $sw['alamat']; ?></td>
-                <td><?php echo $sw['nomortelepon']; ?></td>
+                <td><?php echo $s['namaalumni']; ?></td>
+                <td><?php echo $s['jurusanalumni']; ?></td>
+                <td><?php echo $s['nama']; ?></td>
+                <td><?php echo $s['alamat']; ?></td>
+                <td><?php echo $s['tahun']; ?></td>
                 <td>
-                  <a href="<?php echo base_url() ?>admin/alumni/formeditalumni?id=<?php echo $sw['idalumni']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                  <a href="<?php echo base_url() ?>admin/alumni/detailalumni?id=<?php echo $sw['idalumni']; ?>" class="btn btn-info btn-sm">detail</a>
+                  <a href="<?php echo base_url(); ?>admin/alumni/proseshapusdataallalumni?id=<?php echo $s['idtbalumni']; ?>" class="btn btn-danger btn-sm tombol-hapus">Hapus</a>
+                  <a href="<?php echo base_url(); ?>admin/alumni/formeditallalumni?id=<?php echo $s['idtbalumni']; ?>" class="btn btn-info btn-sm">Edit</a>
                 </td>
               </tr>
-             <?php endforeach; ?>
-             
+            <?php endforeach; ?>
             </tbody>
           </table>
+          <a href="<?php echo base_url() ?>admin/alumni/formalumniall" class="btn btn-primary btn-sm">Tambah Data</a>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">

@@ -12,11 +12,11 @@
 
       <!-- Default box -->
       <div class="card">
-        
+       
      
         <div class="card-header">
 
-          <h3 class="card-title">Halaman Dashboard</h3>
+          <h3 class="card-title">Halaman Data Detail Event</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -28,7 +28,11 @@
           </div>
         </div>
         <div class="card-body">
-           <?php var_dump($this->session->userdata()); ?>
+        <span class="badge badge-danger ">Nama Event</span>  : <?php echo $event['namaevent']; ?><br><br>
+        <span class="badge badge-danger">Keterangan</span> : <?php echo $event['keterangan']; ?><br><br>
+        <span class="badge badge-danger">Tanggal event</span> : <?php echo $event['tanggalevent']; ?><br>
+        <a href="<?php echo base_url() ?>admin/event" class="btn btn-info btn-sm mt-4">Kembali</a>
+
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -42,33 +46,9 @@
     </section>
 
 
-    <div class="row">
-      <div class="col-lg-6">
-         <section class="content-header">
-      
-       <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="flash-datalogin" data-flashdatalogin="<?php echo $this->session->flashdata('flashlogin'); ?>"></div>
-        
-
-        <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
+    <!-- /.content -->
 
      
-        
-        
-        <!-- /.card-body -->
-       
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
-      </div>
-    </div>
-
-
-    <!-- /.content -->
   </div>
 
 
@@ -76,3 +56,4 @@
     
 
 
+   

@@ -1,5 +1,5 @@
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar elevation-4" style="background-color: purple;">
     <!-- Brand Logo -->
    
 
@@ -9,7 +9,7 @@
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         
         <div class="info">
-          <a href="#" class="d-block"><?php echo $this->session->userdata('namapengguna'); ?></a>
+          <a href="#" class="d-block text-white" style="font-size: 30px; text-transform: uppercase;"><?php echo $this->session->userdata('namapengguna'); ?></a>
         </div>
       </div>
 
@@ -34,6 +34,25 @@
            
           </li>
 
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                All Alumni
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url() ?>admin/alumni/showalumni" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Alumni</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
            <li class="nav-item">
             <a href="<?php echo base_url(); ?>admin/alumni" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -50,6 +69,17 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Loker
+              
+              </p>
+            </a>
+           
+          </li>
+
+          <li class="nav-item">
+            <a href="<?php echo base_url(); ?>admin/event" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Event
               
               </p>
             </a>
@@ -80,7 +110,7 @@
             
 
            <li class="nav-item">
-            <a href="<?php echo base_url() ?>admin/login/logout" class="nav-link">
+            <a href="<?php echo base_url() ?>admin/login/logout" class="nav-link tombol-logout">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Logout
@@ -126,7 +156,7 @@
 
          
            <li class="nav-item">
-            <a href="<?php echo base_url() ?>login/logout" class="nav-link">
+            <a href="<?php echo base_url() ?>login/logout" class="nav-link tombol-logout">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Logout

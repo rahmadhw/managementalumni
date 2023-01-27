@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/mycss/style.css" />
-    <title>Form Input Wave</title>
+    
   </head>
   <body>
      
@@ -34,6 +34,9 @@
         <p class="text">Don't have an account? <a href="<?php echo base_url() ?>users/registrasi">Register</a> </p>
       </form>
     </div>
+    <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/myjs/script.js"></script>
+    
+    
   </body>
 </html>

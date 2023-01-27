@@ -46,6 +46,7 @@
           <form action="<?php echo base_url(); ?>admin/alumni/proseseditalumni" method="POST">
             <div class="row">
               <div class="col-lg-6">
+                <input type="hidden" name="idalumni" value="<?php echo $edit[0]['idalumni']; ?>">
                 <div class="form-group">
                   <label>Nama Alumni</label>
                   <input type="text" name="namaalumni" class="form-control" value="<?php echo $edit[0]['namaalumni']; ?>">
@@ -84,9 +85,16 @@
                 <div class="form-group">
                   <label>Status Pekerjaan</label>
                   <select class="custom-select custom-select-sm" name="idstatus">
-                    <option value="<?php echo $edit[0]['idstatus'] ?>"><?php echo $edit[0]['namastatus']; ?></option>
-                  <?php foreach($status as $st) : ?>
-                    <option value="<?php echo $st['idstatus'] ?>"><?php echo $st['namastatus'] ?></option>
+                  <?php foreach($getstatus as $st) : ?>
+                    <?php if ($st['idstatus'] == $edit[0]['idstatus']) : ?>
+
+                      <option value="<?php echo $st['idstatus'] ?>"selected><?php echo $st['namastatus'] ?></option>
+
+                    <?php else : ?>
+                      <option value="<?php echo $st['idstatus'] ?>"><?php echo $st['namastatus'] ?></option>
+
+                    <?php endif; ?>
+                    
                   <?php endforeach; ?>
                   </select>
                 </div>

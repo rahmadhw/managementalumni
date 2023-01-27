@@ -12,16 +12,8 @@
 
       <!-- Default box -->
       <div class="card">
-      <?php if ($this->session->flashdata("ijazah")) : ?>
-       <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Anda!</strong><?php echo $this->session->flashdata("ijazah") ?> menambahkan data.
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-     <?php endif; ?>
 
-
+      <div class="flash-data" data-flashdata="<?php echo $this->session->flashdata('flash'); ?>"></div>
 
         <div class="card-header">
 
@@ -57,14 +49,14 @@
                   <td><?php echo $ijz["statuspengambilan"]; ?></td>
                   <?php if ($ijz['statuspengambilan'] == "Sudah mengambil") { ?>
                   <td>
-                    <a href="" class="btn btn-warning btn-sm">Kembali</a>
+                    <span class="badge badge-success">Selesai</span>
                   </td>
 
                   <?php }else{ ?>
 
                   <td>
                     <a href="" class="btn btn-info btn-sm">Hubungi</a> 
-                    <a href="" class="btn btn-danger btn-sm">Update</a>
+                    <a href="<?php echo base_url(); ?>admin/ijazah/formeditijazah?id=<?php echo $ijz['idijazah'] ?>" class="btn btn-danger btn-sm">Update</a>
                   </td>
 
 

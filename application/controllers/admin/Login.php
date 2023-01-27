@@ -36,7 +36,7 @@ class Login extends CI_Controller {
 					"status"		=> "Online"
 				);
 
-				$this->session->set_flashdata('flashlogin', 'berhasil');
+				$this->session->set_flashdata('flashlogin', 'login');
 				$this->session->set_userdata($datasession);
 				redirect(base_url('admin/home'));
 			}

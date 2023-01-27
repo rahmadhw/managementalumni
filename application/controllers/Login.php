@@ -39,7 +39,7 @@ class Login extends CI_Controller {
 					'logged_in'     => TRUE
 				);
 
-				$this->session->set_flashdata('flash', 'login');
+				$this->session->set_flashdata('flashlogin', 'login');
 				$this->session->set_userdata($datasession);
 				redirect(base_url('dashbord'));
 			}else {

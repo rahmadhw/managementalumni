@@ -14,13 +14,32 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/plugins/datatables/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/plugins/sweetalert2/sweetalert2.min.css">
+
+  <style type="text/css">
+    nav ul li a {
+      color: white !important; 
+    }
+
+    .sidebarr {
+      background-color: black;
+    }
+
+    .bgn {
+      background-color: purple !important;
+    }
+
+    .bg-dark {
+      background-color: purple !important;
+    }
+  </style>
 
 </head>
 <body class="hold-transition sidebar-mini">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-dark bgn">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">

@@ -12,14 +12,7 @@
 
       <!-- Default box -->
       <div class="card">
-        <?php if ($this->session->flashdata("flashlogin")) : ?>
-
-          <div class="alert alert-success" role="alert">
-            <span>anda berhasil <?php echo $this->session->flashdata("flashlogin"); ?></span>
-          </div>
-
-
-        <?php endif; ?>
+       <div class="flash-datalogin" data-flashdatalogin="<?php echo $this->session->flashdata('flashlogin'); ?>"></div>
      
         <div class="card-header">
 
