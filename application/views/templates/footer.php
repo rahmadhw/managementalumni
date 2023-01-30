@@ -195,18 +195,23 @@
       })
     })
 
-  });
 
+    // var id = $('#id').attr('id')
+  
+     $.ajax({ 
+      url: '<?php echo base_url() ?>admin/chat/viewchat',
+      dataType: 'json',
+      success: function(data){
+        var output = ''
+        data.forEach(function (data, value) {
+          output += '<div class="m-3" style="display:flex; flex-direction:column; align-items:center"><p>'+ data.namapengguna +'</p><a href="<?php echo base_url() ?>admin/chat/proseschat?id='+ data.idakun +'" class="btn btn-info btn-sm" id="'+ data.idakun +'">Pesan</a></div>'
+          // output += '<div><button class="btn btn-primary btn-sm">simpan</button></div>'
+          $("#obrolan").html(output)
+        })
+      }
+    })
+   })
 
-  // function pelamaran()
-  // {
-  //   const form = "<form id='form' method='POST'><div class='form-group'><label>Nama Catatan</label><input type='text' name='Namacatatan' id='Namacatatan' class='form-control'></div><div class='form-group'><label>keterangancatatan</label><input type='text' name='Namacatatan' id='keterangancatatan' class='form-control'></div><div class='form-group'><label>syarat</label><input type='text' name='Namacatatan' id='syarat' class='form-control'></div><div class='form-group'><label>Alamat Email</label><input type='text' name='Namacatatan' id='email' class='form-control'></div><div class='form-group'><input type='submit' class='btn btn-primary btn-sm tomboltambahpelamaran' onclick='proses()' value='simpan'></div></form>";
-
-
-  //   $("#content-header").css("transition", "all 1s");
-  //   $("#content-header").css("opacity", 1);
-  //   $("#card-body").html(form);
-  // }
 
 
 

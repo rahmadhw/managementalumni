@@ -107,6 +107,15 @@
               </p>
             </a>
 
+            <li class="nav-item">
+            <a href="<?php echo base_url(); ?>admin/chat" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                chat
+              
+              </p>
+            </a>
+
             
 
            <li class="nav-item">

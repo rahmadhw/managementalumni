@@ -16,7 +16,10 @@
      
         <div class="card-header">
 
-        <h3 class="card-title">Obrolan</h3>
+        
+        <h3 class="card-title"><?php echo $datachat[0]['namapengguna']; ?></h3>
+
+
           
 
           <div class="card-tools">
@@ -29,11 +32,30 @@
           </div>
         </div>
         <div class="card-body">
-           <div class="row">
-             <div class="col-lg-12 flex-row" style="display: flex; flex-direction: row; align-items: center; justify-content: center;" id="obrolan">
-               
-             </div>
-           </div>
+          
+     
+
+        <?php foreach ($viewchat as $pr) : ?>
+
+
+          <p style="text-align: left;"><?php echo $pr['message']; ?></p>
+
+
+        <?php endforeach; ?>
+
+
+        <?php foreach ($viewchat2 as $pr) : ?>
+
+
+          
+
+
+        <?php endforeach; ?>
+
+
+        
+        
+
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
